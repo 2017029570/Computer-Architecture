@@ -58,7 +58,6 @@ int main(int argc, char *argv[]) {
 		while(1) {
 				printState(&state);
 				decompose(state.mem[state.pc], &opcode, &reg1, &reg2, &offset);
-				printf("%d\n",opcode);
 				if(opcode == 0) {
 						state.reg[offset] = state.reg[reg1] + state.reg[reg2];
 				}
