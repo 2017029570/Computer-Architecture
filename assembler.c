@@ -120,25 +120,15 @@ int IType(char* opcode, char* arg0, char* arg1, char* arg2, char (*labelcheck)[7
 		}
 
 		else {
-				if(!strcmp(arg2, "zero")) offset = 0;
-				else if(!strcmp(arg2, "one")) offset = 1;
-				else if(!strcmp(arg2, "two")) offset = 2;
-				else if(!strcmp(arg2, "three")) offset = 3;
-				else if(!strcmp(arg2, "four")) offset = 4;
-				else if(!strcmp(arg2, "five")) offset = 5;
-				else if(!strcmp(arg2, "six")) offset = 6;
-				else if(!strcmp(arg2, "seven")) offset = 7;
-				else {
-					for(int i=0;i<MAXLINELENGTH;i++) {
-							if(!strcmp(labelcheck[i], arg2)) {
-									offset = i - pc - 1;
-									break;
-							}
-							else if(i == MAXLINELENGTH-1) {
-									printf("error: invalid label\n");
-									exit(1);
-							}
-					}
+				for(int i=0;i<MAXLINELENGTH;i++) {
+						if(!strcmp(labelcheck[i], arg2)) {
+								offset = i - pc - 1;
+								break;
+						}
+						else if(i == MAXLINELENGTH-1) {
+								printf("error: invalid label\n");
+								exit(1);
+						}
 				}
 		}
 
