@@ -82,6 +82,9 @@ int main(int argc, char *argv[]) {
 				else if(opcode == 6) {
 						state.pc++;
 						printState(&state);
+						printf("machine halted\n");
+						printf("total of %d instructions executed\n",counter);
+						printf("final state of machine:\n");
 						break;
 				}
 				else if(opcode == 7) {
