@@ -122,7 +122,10 @@ int IType(char* opcode, char* arg0, char* arg1, char* arg2, char (*labelcheck)[7
 		else {
 				for(int i=0;i<MAXLINELENGTH;i++) {
 						if(!strcmp(labelcheck[i], arg2)) {
-								offset = i - pc - 1;
+								if(!strcmp(opcode, "beq"))
+										offset = i - pc - 1;
+								else 
+										offset = i - regA;
 								break;
 						}
 						else if(i == MAXLINELENGTH-1) {
